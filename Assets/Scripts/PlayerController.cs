@@ -1,45 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 7f;
-    public float maxVelocity = 10f;
-    public LayerMask groundLayer;
+    public float moveSpeed = 10f;
+    public Transform cameraTransform;
 
     private Rigidbody rb;
-    private bool isGrounded;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
 
-    void Update()
-    {
-        // Movement Input
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
-        // Apply force for rolling movement
-        Vector3 force = new Vector3(moveX, 0, moveZ) * moveSpeed;
-        rb.AddForce(force, ForceMode.Acceleration);
-
-        // Jumping logic
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        // If camera not assigned, automatically find main camera
+        if (cameraTransform == null && Camera.main != null)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            cameraTransform = Camera.main.transform;
         }
-
-        // Limit max speed
-        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
     }
 
-    // Ground check using raycast
-    private bool IsGrounded()
+    void FixedUpdate()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
+        MoveBall();
+    }
+
+    void MoveBall()
+    {
+        float horizontal = Input.GetAxis("Horizontal"); // A and D keys
+        float vertical = Input.GetAxis("Vertical");     // W and S keys
+
+        // Direction based on camera
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        // Ignore vertical rotation (we don't want ball to move up/down based on camera pitch)
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 moveDirection = (forward * vertical + right * horizontal).normalized;
+
+        rb.AddForce(moveDirection * moveSpeed, ForceMode.Force);
     }
 }
