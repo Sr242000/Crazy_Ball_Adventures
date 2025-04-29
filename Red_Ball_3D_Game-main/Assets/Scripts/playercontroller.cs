@@ -42,6 +42,7 @@ public class playercontroller : MonoBehaviour
     {
         return Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         GameManager.Instance.Score();
@@ -55,7 +56,7 @@ public class playercontroller : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Dedly"))
         {
-
+            Debug.Log("Pipe se takraya");
             moveSpeed = 0;
 
         }

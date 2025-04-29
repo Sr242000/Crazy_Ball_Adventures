@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public int highScore = 0;
     public bool gameOver = false;
     public bool hasGameStarted = false;
-    public Rigidbody2D playerControllerRigidbody;
+    public Rigidbody playerControllerRigidbody;
 
 
     //Singleton Pattern
@@ -30,13 +30,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         highScore = PlayerPrefs.GetInt("Highscore", 0);
-        playerControllerRigidbody.gravityScale = 0;
+        //playerControllerRigidbody.gravityScale = 0;
     }
 
     public void GameStart()
     {
         hasGameStarted = true;
-        playerControllerRigidbody.gravityScale = 1;
+        //playerControllerRigidbody.gravityScale = 1;
     }
 
 
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         //AudioManager.Instance.PlayGameOverSound();
-        //UIManager.Instance.HandleGameOverUI();
+        UIManager.Instance.HandleGameOverUI();
     }
 
     public void SaveGame()
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     public void Score()
     {
         score++;
-        //UIManager.Instance.UpdateUserScore(score);
+        UIManager.Instance.UpdateUserScore(score);
         if (highScore < score)
         {
             highScore = score;
