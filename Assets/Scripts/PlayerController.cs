@@ -1,45 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class playercontroller : MonoBehaviour
 {
-    public float moveSpeed = 10f;
-    public Transform cameraTransform;
+    public float moveSpeed = 5f;
+    public float jumpForce = 7f;
+    public float maxVelocity = 10f;
+    public LayerMask groundLayer;
 
     private Rigidbody rb;
+    private bool isGrounded;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
 
-        // If camera not assigned, automatically find main camera
-        if (cameraTransform == null && Camera.main != null)
+    void Update()
+    {
+        // Movement Input
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        // Apply force for rolling movement
+        Vector3 force = new Vector3(horizontal, 0, vertical) * moveSpeed;
+        rb.AddForce(force, ForceMode.Acceleration);
+
+        // Jumping logic
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            cameraTransform = Camera.main.transform;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
+        // Limit max speed
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxVelocity);
     }
 
-    void FixedUpdate()
+    // Ground check using raycast
+    private bool IsGrounded()
     {
-        MoveBall();
-    }
-
-    void MoveBall()
-    {
-        float horizontal = Input.GetAxis("Horizontal"); // A and D keys
-        float vertical = Input.GetAxis("Vertical");     // W and S keys
-
-        // Direction based on camera
-        Vector3 forward = cameraTransform.forward;
-        Vector3 right = cameraTransform.right;
-
-        // Ignore vertical rotation (we don't want ball to move up/down based on camera pitch)
-        forward.y = 0f;
-        right.y = 0f;
-        forward.Normalize();
-        right.Normalize();
-
-        Vector3 moveDirection = (forward * vertical + right * horizontal).normalized;
-
-        rb.AddForce(moveDirection * moveSpeed, ForceMode.Force);
+        return Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
     }
 }
