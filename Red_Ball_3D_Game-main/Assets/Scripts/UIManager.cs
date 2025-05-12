@@ -28,12 +28,12 @@ public class UIManager : MonoBehaviour
         gameUI_ScoreText.text = score.ToString();
     }
 
-    public void HandleGameOverUI()
-    {
-        gameOverPanel.SetActive(true);
-        gameUIPanel.SetActive(false);
-        scoreText.text = "Your Score: " + GameManager.Instance.score;
-    }
+    //public void HandleGameOverUI()
+    //{
+    //gameOverPanel.SetActive(true);
+    //gameUIPanel.SetActive(false);
+    //  scoreText.text = "Your Score: " + GameManager.Instance.score;
+    //}
 
     public void ReloadGame()
     {

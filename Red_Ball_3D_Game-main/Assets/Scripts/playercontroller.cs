@@ -54,12 +54,12 @@ public class playercontroller : MonoBehaviour
             GameManager.Instance.GameOver();
         }
 
-        if (collision.gameObject.CompareTag("plan"))
-        {
-            Debug.Log("Pipe se takraya");
-            moveSpeed = 0;
+        //if (collision.gameObject.CompareTag("plan"))
+        //{
+        //  Debug.Log("Pipe se takraya");
+        //moveSpeed = 0;
 
-        }
+        //}
 
     }
 }
