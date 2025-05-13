@@ -58,9 +58,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81f879704a521d54992aaede7ab128a4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8942661758246739160}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81f879704a521d54992aaede7ab128a4, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4012063722210346281}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81f879704a521d54992aaede7ab128a4, type: 3}
       insertIndex: -1
@@ -71,24 +68,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 81f879704a521d54992aaede7ab128a4, type: 3}
   m_PrefabInstance: {fileID: 2699944319912347014}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8942661758246739160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3006514336810711255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64da3f7dcf5f142428b9cc1a88c12700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 7
-  maxVelocity: 10
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!135 &4012063722210346281
 SphereCollider:
   m_ObjectHideFlags: 0

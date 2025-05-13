@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class playercontroller : MonoBehaviour
 {
@@ -21,11 +20,11 @@ public class playercontroller : MonoBehaviour
     void Update()
     {
         // Movement Input
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
 
         // Apply force for rolling movement
-        Vector3 force = new Vector3(horizontal, 0, vertical) * moveSpeed;
+        Vector3 force = new Vector3(moveZ, 0, moveX) * moveSpeed;
         rb.AddForce(force, ForceMode.Acceleration);
 
         // Jumping logic
@@ -42,5 +41,25 @@ public class playercontroller : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager.Instance.Score();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!GameManager.Instance.gameOver)
+        {
+            GameManager.Instance.GameOver();
+        }
+
+        //if (collision.gameObject.CompareTag("plan"))
+        //{
+        //  Debug.Log("Pipe se takraya");
+        //moveSpeed = 0;
+
+        //}
+
     }
 }
