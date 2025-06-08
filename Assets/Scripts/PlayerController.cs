@@ -19,12 +19,19 @@ public class playercontroller : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameOver || !GameManager.Instance.hasGameStarted)
+        {
+            rb.linearVelocity = Vector3.zero; // Stop movement
+            rb.angularVelocity = Vector3.zero;
+            return; // Stop processing input
+        }
+
         // Movement Input
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
         // Apply force for rolling movement
-        Vector3 force = new Vector3(moveZ, 0, moveX) * moveSpeed;
+        Vector3 force = new Vector3(moveZ, 0, -moveX) * moveSpeed;
         rb.AddForce(force, ForceMode.Acceleration);
 
         // Jumping logic
@@ -49,17 +56,26 @@ public class playercontroller : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (!GameManager.Instance.gameOver)
+        if(collision.gameObject.tag == "killer")
         {
-            GameManager.Instance.GameOver();
+            if(!GameManager.Instance.gameOver)
+            {
+                GameManager.Instance.GameOver();
+                moveSpeed = 0;
+            }
+            print("object killed");
         }
 
-        //if (collision.gameObject.CompareTag("plan"))
-        //{
-        //  Debug.Log("Pipe se takraya");
-        //moveSpeed = 0;
+        if(collision.gameObject.tag == "flag")
+        {
+            print("Completed");
+            collision.gameObject.GetComponent<Animator>().SetInteger("complete", 1);
+            //UIManager.Instance.LevelCompletePanel();
+        }
 
-        //}
-
+        if(collision.gameObject.tag == "enemy")
+        {
+            GameManager.Instance.Score();
+        }
     }
 }

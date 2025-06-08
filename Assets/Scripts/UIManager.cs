@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
     public GameObject gameUIPanel;
+    //public GameObject LevelCompletePanel;
     public TMP_Text scoreText;
     public TMP_Text gameUI_ScoreText;
 
@@ -28,16 +29,18 @@ public class UIManager : MonoBehaviour
         gameUI_ScoreText.text = score.ToString();
     }
 
-    //public void HandleGameOverUI()
-    //{
-    //gameOverPanel.SetActive(true);
-    //gameUIPanel.SetActive(false);
-    //  scoreText.text = "Your Score: " + GameManager.Instance.score;
-    //}
+    public void HandleGameOverUI()
+    {
+        gameOverPanel.SetActive(true);
+        gameUIPanel.SetActive(false);
+        scoreText.text = "Your High Score: " + GameManager.Instance.score;
+        Time.timeScale = 0f;
+    }
 
     public void ReloadGame()
     {
-        SceneManager.LoadScene("FlyingBall");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ExitGame()

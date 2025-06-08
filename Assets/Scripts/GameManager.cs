@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         hasGameStarted = true;
+        gameOver = false;
+        Time.timeScale = 1f;
         //playerControllerRigidbody.gravityScale = 1;
     }
 
@@ -43,8 +45,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
+        hasGameStarted = false; // Add this
         //AudioManager.Instance.PlayGameOverSound();
-        //UIManager.Instance.HandleGameOverUI();
+        UIManager.Instance.HandleGameOverUI();
     }
 
     public void SaveGame()
