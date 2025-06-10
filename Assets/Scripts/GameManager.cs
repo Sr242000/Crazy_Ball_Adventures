@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         hasGameStarted = false; // Add this
+        print("message");
         //AudioManager.Instance.PlayGameOverSound();
         UIManager.Instance.HandleGameOverUI();
     }

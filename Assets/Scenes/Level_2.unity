@@ -599,7 +599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &377254639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2985,7 +2985,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 370416479131341898, guid: dacdb63409f80794fa0e2cb4c438105a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1489457999}
+      addedObject: {fileID: 1489458004}
   m_SourcePrefab: {fileID: 100100000, guid: dacdb63409f80794fa0e2cb4c438105a, type: 3}
 --- !u!1001 &1438464066
 PrefabInstance:
@@ -3129,7 +3129,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 370416479131341898, guid: dacdb63409f80794fa0e2cb4c438105a, type: 3}
   m_PrefabInstance: {fileID: 1397212234}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1489457999
+--- !u!95 &1489458004
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -3139,7 +3139,7 @@ Animator:
   m_GameObject: {fileID: 1489457993}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec0811b46f43a514ab3ae1b7f41df2fd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a0c611ea3822394a9760d0c5116e3fb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
