@@ -8,7 +8,6 @@ Shreyash Rahate <br>
 Vatsal Chauhan <br>
 
 Group Member Roles <br>
-Game Design, Level Design, Resources of Game Art and Audio - Amey Mehta <br>
-Game Programming, UI Programming, UI Design - Vatsal Chauhan <br>
-Level Design, Game Art, Game Audio - Shreyash Rahate <br>
-Testing and Debug - Amey Mehta, Vatsal Chauhan and Shreyash Rahate <br>
+Game Design, Level Design, Resources of Game Art and Audio, Testing and Debug - Amey Mehta <br>
+Game Programming, UI Programming, UI Design, Testing and Debug - Vatsal Chauhan <br>
+Level Design, Game Art, Game Animation, Testing and Debug - Shreyash Rahate <br>
