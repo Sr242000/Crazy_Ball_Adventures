@@ -1690,7 +1690,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1927327830}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ReloadGame
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1823,7 +1823,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1927327830}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4372,7 +4372,7 @@ GameObject:
   - component: {fileID: 1870132684}
   - component: {fileID: 1870132683}
   m_Layer: 5
-  m_Name: retry
+  m_Name: resumebutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4686,6 +4686,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 803913304}
   gameUIPanel: {fileID: 2141601906}
+  LevelCompletePanel: {fileID: 181785663}
+  PausePanel: {fileID: 536199186}
   scoreText: {fileID: 192219766}
   gameUI_ScoreText: {fileID: 276561083}
 --- !u!4 &1927327831

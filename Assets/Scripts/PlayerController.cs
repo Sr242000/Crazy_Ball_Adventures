@@ -70,6 +70,7 @@ public class playercontroller : MonoBehaviour
         {
             print("Completed");
             collision.gameObject.GetComponent<Animator>().SetInteger("complete", 1);
+            UIManager.Instance.HandleLevelComplete(); // Show Level Complete panel
             //UIManager.Instance.LevelCompletePanel();
         }
 
