@@ -19,6 +19,13 @@ public class playercontroller : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameOver || !GameManager.Instance.hasGameStarted)
+        {
+            rb.linearVelocity = Vector3.zero; // Stop movement
+            rb.angularVelocity = Vector3.zero;
+            return; // Stop processing input
+        }
+
         // Movement Input
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
@@ -63,6 +70,8 @@ public class playercontroller : MonoBehaviour
         {
             print("Completed");
             collision.gameObject.GetComponent<Animator>().SetInteger("complete", 1);
+            UIManager.Instance.HandleLevelComplete(); // Show Level Complete panel
+            //UIManager.Instance.LevelCompletePanel();
         }
 
         if(collision.gameObject.tag == "enemy")

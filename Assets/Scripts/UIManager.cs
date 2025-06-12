@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
     public GameObject gameUIPanel;
+    public GameObject LevelCompletePanel;
+    public GameObject PausePanel;
     public TMP_Text scoreText;
     public TMP_Text gameUI_ScoreText;
 
@@ -33,11 +35,42 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         gameUIPanel.SetActive(false);
         scoreText.text = "Your High Score: " + GameManager.Instance.score;
+        Time.timeScale = 0f;
     }
 
     public void ReloadGame()
     {
-        SceneManager.LoadScene("Level_1");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void HandleLevelComplete()
+    {
+        LevelCompletePanel.SetActive(true);
+        gameUIPanel.SetActive(false); // Optional: Hide in-game UI
+        Time.timeScale = 0f; // Pause game
+    }
+
+    public void LoadNextLevel()
+    {
+        Time.timeScale = 1f; // Resume game time in case it was paused
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No more levels. Restarting at level 1.");
+            SceneManager.LoadScene(0); // Or show a final screen
+        }
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1f; // Resume time before switching scenes
+        SceneManager.LoadScene(0);
     }
 
     public void ExitGame()
@@ -45,4 +78,6 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SaveGame();
         Application.Quit();
     }
+
+    
 }

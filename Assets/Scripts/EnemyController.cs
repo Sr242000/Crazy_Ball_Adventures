@@ -41,14 +41,15 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!GameManager.Instance.gameOver)
-        {
-            GameManager.Instance.GameOver();
 
-        }
         if (collision.collider.CompareTag("Player"))
         {
             moveSpeed = 0;
+            if (!GameManager.Instance.gameOver)
+            {
+                GameManager.Instance.GameOver();
+
+            }
 
         }
     }
