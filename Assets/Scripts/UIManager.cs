@@ -73,6 +73,18 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (GameManager.Instance.hasGameStarted)
+            {
+                PausePanel.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
+    }
+
     public void ExitGame()
     {
         GameManager.Instance.SaveGame();

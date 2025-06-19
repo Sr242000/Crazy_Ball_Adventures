@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         highScore = PlayerPrefs.GetInt("Highscore", 0);
+        if (playerControllerRigidbody != null)
+        {
+            playerControllerRigidbody.isKinematic = true; // Disable physics initially
+        }
         //playerControllerRigidbody.gravityScale = 0;
     }
 
@@ -38,6 +42,11 @@ public class GameManager : MonoBehaviour
         hasGameStarted = true;
         gameOver = false;
         Time.timeScale = 1f;
+
+        if (playerControllerRigidbody != null)
+        {
+            playerControllerRigidbody.isKinematic = true;  // Disable physics initially
+        }
         //playerControllerRigidbody.gravityScale = 1;
     }
 

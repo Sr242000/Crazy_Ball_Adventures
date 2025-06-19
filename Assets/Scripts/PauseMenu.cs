@@ -2,17 +2,8 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI; // Assign your pause menu panel in Inspector
+    public GameObject pauseMenuUI;
     private bool isPaused = false;
-
-    void Update()
-    {
-        // Optional: Toggle pause with ESC key
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
-    }
 
     public void TogglePause()
     {
