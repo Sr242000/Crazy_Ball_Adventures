@@ -4,8 +4,12 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip scoreSound;
     public AudioClip gameOverSound;
+    public AudioClip jumpSound;
+    public AudioClip enemySound;
+    public AudioClip enemyKillSound;
 
     private static AudioManager _instance;
+    private AudioSource audioSource;
 
     public static AudioManager Instance
     {
@@ -19,13 +23,42 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     public void PlayScoreSound()
     {
-
-        AudioSource.PlayClipAtPoint(scoreSound, Camera.main.transform.position);
+        audioSource.PlayOneShot(scoreSound);
     }
+
     public void PlayGameOverSound()
     {
-        AudioSource.PlayClipAtPoint(gameOverSound, Camera.main.transform.position);
+        audioSource.PlayOneShot(gameOverSound);
+    }
+
+    public void PlayJumpSound()
+    {
+        audioSource.PlayOneShot(jumpSound);
+    }
+
+    public void PlayEnemySound()
+    {
+        audioSource.PlayOneShot(enemySound);
+    }
+
+    public void PlayEnemyKillSound()
+    {
+        audioSource.PlayOneShot(enemyKillSound);
     }
 }

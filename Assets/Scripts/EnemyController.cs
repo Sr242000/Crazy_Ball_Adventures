@@ -37,6 +37,8 @@ public class EnemyController : MonoBehaviour
             if (transform.position.z >= leftPoint.position.z)
                 movingRight = true;
         }
+
+        //AudioManager.Instance.PlayEnemySound();
     }
 
     void OnCollisionEnter(Collision collision)

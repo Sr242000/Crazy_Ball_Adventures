@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         print("message");
         //AudioManager.Instance.PlayGameOverSound();
         UIManager.Instance.HandleGameOverUI();
+        AudioManager.Instance.PlayGameOverSound();
     }
 
     public void SaveGame()
@@ -75,8 +76,7 @@ public class GameManager : MonoBehaviour
             SaveGame();
         }
 
-
-        //AudioManager.Instance.PlayScoreSound();
+        AudioManager.Instance.PlayScoreSound();
     }
 }
 

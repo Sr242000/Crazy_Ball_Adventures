@@ -8075,8 +8075,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abd3912fcc5a544a947a063ff51b48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreSound: {fileID: 0}
-  gameOverSound: {fileID: 0}
+  scoreSound: {fileID: 8300000, guid: cc7aa1a3d1d3a64419c3d51fffc16105, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 7bd0e698e01a7d54a8a9f624435356f3, type: 3}
+  jumpSound: {fileID: 8300000, guid: 09a30002d830240489022bf24a4f4192, type: 3}
+  enemySound: {fileID: 8300000, guid: a6c04c4385253c541923bab03f4e5c90, type: 3}
+  enemyKillSound: {fileID: 8300000, guid: 8a512bf8664d50e4a820c8839a00ca64, type: 3}
 --- !u!4 &1909727955
 Transform:
   m_ObjectHideFlags: 0

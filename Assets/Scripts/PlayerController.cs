@@ -38,6 +38,7 @@ public class playercontroller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            AudioManager.Instance.PlayJumpSound();
         }
 
         // Limit max speed
@@ -78,5 +79,7 @@ public class playercontroller : MonoBehaviour
         {
             GameManager.Instance.Score();
         }
+
+        
     }
 }
