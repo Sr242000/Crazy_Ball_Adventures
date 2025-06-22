@@ -3370,9 +3370,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 351551938}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ReloadGame
+      - m_Target: {fileID: 618477813}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3857,6 +3857,10 @@ PrefabInstance:
     - target: {fileID: 3006514336810711255, guid: 9548b95779937b444a1b181c7a548de3, type: 3}
       propertyPath: m_Name
       value: ball1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006514336810711255, guid: 9548b95779937b444a1b181c7a548de3, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

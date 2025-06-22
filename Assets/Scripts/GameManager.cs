@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         highScore = PlayerPrefs.GetInt("Highscore", 0);
+        hasGameStarted = false;
         if (playerControllerRigidbody != null)
         {
             playerControllerRigidbody.isKinematic = true; // Disable physics initially
@@ -79,9 +80,3 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayScoreSound();
     }
 }
-
-
-
-
-
-

@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
                 movingRight = true;
         }
 
-        //AudioManager.Instance.PlayEnemySound();
+        
     }
 
     void OnCollisionEnter(Collision collision)
@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
             if (!GameManager.Instance.gameOver)
             {
                 GameManager.Instance.GameOver();
-
+                AudioManager.Instance.PlayEnemySound();
             }
 
         }
