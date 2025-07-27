@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         UIManager.Instance.UpdateUserScore(score);
-        if (highScore < score)
+        if (highScore > score)
         {
             highScore = score;
             SaveGame();

@@ -1822,7 +1822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1038127542246264560, guid: dacdb63409f80794fa0e2cb4c438105a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1981.0338
+      value: 1930.7239
       objectReference: {fileID: 0}
     - target: {fileID: 1038127542246264560, guid: dacdb63409f80794fa0e2cb4c438105a, type: 3}
       propertyPath: m_LocalScale.y
@@ -1830,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1038127542246264560, guid: dacdb63409f80794fa0e2cb4c438105a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 284.41
+      value: 283.34
       objectReference: {fileID: 0}
     - target: {fileID: 1038127542246264560, guid: dacdb63409f80794fa0e2cb4c438105a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3964,7 +3964,7 @@ MonoBehaviour:
   LevelCompletePanel: {fileID: 1683381780}
   PausePanel: {fileID: 1775856400}
   scoreText: {fileID: 1603900866}
-  gameUI_ScoreText: {fileID: 2040734890}
+  gameUI_ScoreText: {fileID: 1603900866}
 --- !u!4 &1313816411
 Transform:
   m_ObjectHideFlags: 0
@@ -5477,6 +5477,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 09a30002d830240489022bf24a4f4192, type: 3}
   enemySound: {fileID: 8300000, guid: a6c04c4385253c541923bab03f4e5c90, type: 3}
   enemyKillSound: {fileID: 8300000, guid: 8a512bf8664d50e4a820c8839a00ca64, type: 3}
+  deathSound: {fileID: 8300000, guid: a6cb74f8fc4294a46919fa1518d8252d, type: 3}
 --- !u!4 &1688582962
 Transform:
   m_ObjectHideFlags: 0
@@ -5594,7 +5595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1784747215}
   m_Layer: 0
-  m_Name: enemy1
+  m_Name: Emeny
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

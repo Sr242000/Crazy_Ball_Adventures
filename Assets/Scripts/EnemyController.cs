@@ -38,21 +38,18 @@ public class EnemyController : MonoBehaviour
                 movingRight = true;
         }
 
-        
+
     }
 
-    void OnCollisionEnter(Collision collision)
+
+
+
+    private void OnCollisionEnter(Collision Collision)
     {
-
-        if (collision.collider.CompareTag("Player"))
+        if (Collision.gameObject.name == "ball1")
         {
-            moveSpeed = 0;
-            if (!GameManager.Instance.gameOver)
-            {
-                GameManager.Instance.GameOver();
-                AudioManager.Instance.PlayEnemySound();
-            }
-
+            Destroy(gameObject);
         }
+
     }
 }

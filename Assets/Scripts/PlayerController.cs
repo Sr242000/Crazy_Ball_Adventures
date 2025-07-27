@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class playercontroller : MonoBehaviour
 {
@@ -53,21 +54,23 @@ public class playercontroller : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.Instance.Score();
+        GameManager.Instance.score++;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "killer")
+        if (collision.gameObject.tag == "killer")
         {
-            if(!GameManager.Instance.gameOver)
+            if (!GameManager.Instance.gameOver)
             {
                 GameManager.Instance.GameOver();
                 moveSpeed = 0;
+                AudioManager.Instance.PlaydeathSound();
             }
+
             print("object killed");
         }
 
-        if(collision.gameObject.tag == "flag")
+        if (collision.gameObject.tag == "flag")
         {
             print("Completed");
             collision.gameObject.GetComponent<Animator>().SetInteger("complete", 1);
@@ -75,11 +78,9 @@ public class playercontroller : MonoBehaviour
             //UIManager.Instance.LevelCompletePanel();
         }
 
-        if(collision.gameObject.tag == "enemy")
-        {
-            GameManager.Instance.Score();
-        }
 
-        
+
+
     }
+
 }

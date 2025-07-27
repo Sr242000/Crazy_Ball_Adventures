@@ -8080,6 +8080,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 09a30002d830240489022bf24a4f4192, type: 3}
   enemySound: {fileID: 8300000, guid: a6c04c4385253c541923bab03f4e5c90, type: 3}
   enemyKillSound: {fileID: 8300000, guid: 8a512bf8664d50e4a820c8839a00ca64, type: 3}
+  deathSound: {fileID: 8300000, guid: a6cb74f8fc4294a46919fa1518d8252d, type: 3}
 --- !u!4 &1909727955
 Transform:
   m_ObjectHideFlags: 0
