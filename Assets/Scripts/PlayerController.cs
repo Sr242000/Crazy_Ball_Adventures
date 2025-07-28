@@ -5,9 +5,9 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class playercontroller : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 7f;
-    public float maxVelocity = 10f;
+    public float moveSpeed = 10f;
+    public float jumpForce = 15f;
+    public float maxVelocity = 15f;
     public LayerMask groundLayer;
 
     private Rigidbody rb;
@@ -54,7 +54,8 @@ public class playercontroller : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.Instance.score++;
+        GameManager.Instance.Score();
+
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -64,7 +65,6 @@ public class playercontroller : MonoBehaviour
             {
                 GameManager.Instance.GameOver();
                 moveSpeed = 0;
-                AudioManager.Instance.PlaydeathSound();
             }
 
             print("object killed");
@@ -72,9 +72,12 @@ public class playercontroller : MonoBehaviour
 
         if (collision.gameObject.tag == "flag")
         {
-            print("Completed");
+            print("Completed1 - "+GameManager.Instance.score);
             collision.gameObject.GetComponent<Animator>().SetInteger("complete", 1);
+            GameManager.Instance.Score();
+            print("Completed2 -" + GameManager.Instance.score);
             UIManager.Instance.HandleLevelComplete(); // Show Level Complete panel
+            
             //UIManager.Instance.LevelCompletePanel();
         }
 

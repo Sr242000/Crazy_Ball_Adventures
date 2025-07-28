@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject PausePanel;
     public TMP_Text scoreText;
     public TMP_Text gameUI_ScoreText;
+    public TMP_Text levelcomplete_ScoreText;
 
     private static UIManager _instance;
 
@@ -35,6 +36,8 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         gameUIPanel.SetActive(false);
         scoreText.text = "Your High Score: " + GameManager.Instance.score;
+        levelcomplete_ScoreText.text = "Your High Score: " + GameManager.Instance.score;
+        print("calling here to");
         Time.timeScale = 0f;
     }
 
@@ -48,6 +51,9 @@ public class UIManager : MonoBehaviour
     {
         LevelCompletePanel.SetActive(true);
         gameUIPanel.SetActive(false); // Optional: Hide in-game UI
+        scoreText.text = "Your High Score: " + GameManager.Instance.score;
+        levelcomplete_ScoreText.text = "Your High Score: " + GameManager.Instance.score;
+        print("highscore : "+GameManager.Instance.score);
         Time.timeScale = 0f; // Pause game
     }
 
@@ -91,5 +97,5 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    
+
 }

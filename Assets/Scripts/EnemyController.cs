@@ -48,6 +48,7 @@ public class EnemyController : MonoBehaviour
     {
         if (Collision.gameObject.name == "ball1")
         {
+            GameManager.Instance.Score();
             Destroy(gameObject);
         }
 

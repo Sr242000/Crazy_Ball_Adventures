@@ -7,7 +7,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip enemySound;
     public AudioClip enemyKillSound;
-    public AudioClip deathSound;
 
     private static AudioManager _instance;
     private AudioSource audioSource;
@@ -62,10 +61,4 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(enemyKillSound);
     }
-
-    public void PlaydeathSound()
-    { 
-        audioSource.PlayOneShot(deathSound);
-    }
-
 }

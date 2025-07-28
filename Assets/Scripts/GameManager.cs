@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int highScore = 0;
     public bool gameOver = false;
+    public bool levelComplete = false;
     public bool hasGameStarted = false;
     public Rigidbody playerControllerRigidbody;
 
@@ -71,12 +72,21 @@ public class GameManager : MonoBehaviour
     {
         score++;
         UIManager.Instance.UpdateUserScore(score);
-        if (highScore > score)
+        if (highScore < score)
         {
             highScore = score;
             SaveGame();
         }
 
         AudioManager.Instance.PlayScoreSound();
+    }
+    public void LevelComplete()
+    {
+        levelComplete = true;
+        hasGameStarted = false; // Add this
+        Score();
+        print("message");
+        UIManager.Instance.HandleLevelComplete();
+        //AudioManager.Instance.PlayGameOverSound();
     }
 }
