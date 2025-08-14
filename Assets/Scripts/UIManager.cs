@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     public GameObject gameUIPanel;
     public GameObject LevelCompletePanel;
     public GameObject PausePanel;
+    public GameObject HelpPanel;
+    public GameObject MainMenuUI;
     public TMP_Text scoreText;
     public TMP_Text gameUI_ScoreText;
     public TMP_Text levelcomplete_ScoreText;
@@ -90,6 +92,20 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void ShowHelpPanel()
+    {
+        HelpPanel.SetActive(true);
+        MainMenuUI.SetActive(false);
+    }
+
+    public void HideHelpPanel()
+    {
+        HelpPanel.SetActive(false);
+        MainMenuUI.SetActive(true);
+    }
+
+
 
     public void ExitGame()
     {
