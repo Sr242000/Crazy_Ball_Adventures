@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class playercontroller : MonoBehaviour
 {
-    public float moveSpeed = 10f;
+    public float moveSpeed = 9f;
     public float jumpForce = 15f;
     public float maxVelocity = 15f;
     public LayerMask groundLayer;
